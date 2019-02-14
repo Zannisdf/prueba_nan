@@ -1,4 +1,4 @@
-<h1>Tareas para este 18!</h1>
+<h1>Actividades para este 18!</h1>
 
 <div class="card-container d-flex flex-wrap justify-content-between">
   <% @tasks.each do |task| %>
@@ -7,9 +7,17 @@
       <div class="card-body">
         <h5 class="card-title"><%= task.title %></h5>
         <%= link_to 'Ver el detalle!', task_path(task), class: 'btn btn-primary' %>
-        <p class="btn-completed">
-          <%= link_to task_completed_tasks_path(task), method: 'post' do %>
-            <i class="far fa-check-circle"></i>
+        <p class="btn-completed mt-3">
+          <% if user_signed_in? %>
+            <% if !@user_tasks.include? task.id %>
+              <%= link_to completed_tasks_path(task), method: 'post', class: 'btn btn-outline-success btn-sm' do %>
+                <i class="fas fa-check-circle"></i> Marcar como completado
+              <% end %>
+            <% else %>
+              <%= link_to destroy_completed_task_task_path(task), method: 'delete', class: 'btn btn-outline-danger btn-sm' do %>
+                <i class="fas fa-times-circle"></i> Marcar como no completado
+              <% end %>
+            <% end %>
           <% end %>
         </p>
       </div>

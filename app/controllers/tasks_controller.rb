@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @user_tasks = current_user.tasks.pluck(:task_id) if user_signed_in?
   end
 
   def show

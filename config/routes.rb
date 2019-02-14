@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :tasks, only: %i[index show] do
-    resources :completed_tasks, only: :create, on: :member
+    member do
+      resources :completed_tasks, only: :create
+      delete 'destroy_completed_task', to: 'completed_tasks#destroy'
+    end
   end
   devise_for :users
   root 'tasks#index'
