@@ -1,8 +1,11 @@
-<h1>Actividades para este 18!</h1>
+<div class="jumbotron">
+  <h1>Actividades para este 18!</h1>
+  <p>Con esta útil guía podrás pasar un dieciocho memorable. Cada vez que completes una actividad acumulas un patriapunto. ¡Consíguelos todos!</p>
+</div>
 
 <div class="card-container d-flex flex-wrap justify-content-between">
   <% @tasks.each do |task| %>
-    <div class="card mb-3 text-center" style="width: 18rem;">
+    <div class="card mb-3 text-center align-self-center" style="width: 18rem;">
       <img src="<%= task.image_url %>" class="card-img-top" alt="Imagen de actividad">
       <div class="card-body">
         <h5 class="card-title"><%= task.title %></h5>
