@@ -10,6 +10,6 @@ Task.destroy_all
 10.times do |i|
   Task.create(
     title: "Tarea #{i + 1}",
-    image_url: "https://picsum.photos/200/300?image=#{rand(1..50)}"
+    image_url: "https://picsum.photos/300/300?image=#{rand(1..50)}"
   )
 end
