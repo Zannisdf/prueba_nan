@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Task.destroy_all
+
+10.times do |i|
+  Task.create(
+    title: "Tarea #{i + 1}",
+    image_url: "https://picsum.photos/200/300?image=#{rand(1..50)}"
+  )
+end
